@@ -1,0 +1,45 @@
+@font-face {
+    font-family: "myfont";
+    src: url("../fonts/font.woff") format("woff");
+}
+
+.link-bar {
+    margin-left : 12%;
+    margin-top : 2%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    padding-bottom : 5px;
+}
+
+/* The link hovering control */
+
+ul li a {
+    font-family: myfont;
+    color : rgb(86, 85, 83);
+    font-size: 50px;
+    text-transform: lowercase;
+    text-decoration: none;
+    font-weight : 600;
+    letter-spacing: 0px;
+    transition: all 0.5s;
+}
+
+.contact:hover {
+    color : #EE9993;
+}
+.project:hover {
+    color : rgb(248, 188, 146);
+}
+
+.github:hover {
+    color : #f1f1ff;
+}
+
+ul li .reddit:hover {
+    color : #FF4500;
+}
