@@ -40,7 +40,7 @@
         display : grid;
         align-items: center;
         text-align: center;
-        margin-top : 10%;
+        /* margin-top : 10%; */
     }
     .data {
         color : #ebe7e7;

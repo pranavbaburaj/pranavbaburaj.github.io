@@ -22,7 +22,7 @@
 		image : string
 	}
 
-	async function fetchData(username:string):Promise<any> {
+	export async function fetchData(username:string):Promise<any> {
 		const data = await fetch(DevProfile.api(username), {
 			method : "GET"
 		})
@@ -30,21 +30,19 @@
 		return await data.json()
 	}
 
-	let userData:string = window.localStorage.getItem('user')
-	if(!userData){
-		fetchData("pranavbaburaj").then((value:any) => {
-			window.localStorage.setItem('user', JSON.stringify(value))
-		}).catch((exception) => {
-			window.location.href = "/"
-		})
+	fetchData("pranavbaburaj").then((value:any) => {
+		window.localStorage.setItem('user', JSON.stringify(value))
+	}).catch((exception) => {
+		window.location.href = "/"
+	})
 
-		userData = window.localStorage.getItem('users')
-	} 
+	let userData:string = window.localStorage.getItem('user')
+
 
 </script>
 
 <main>
-	<Profile></Profile>
+	<Profile data={JSON.parse(userData)}></Profile>
 	<Typewriter text="Hey, I'm  Pranav" emoji="👋🏾"></Typewriter>
 </main>
 
