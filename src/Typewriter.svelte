@@ -46,9 +46,12 @@
         color : #ebe7e7;
         font-family: "Josefin Sans", arial, helvetica;
         display : inline-block;
-        font-size : 10vw;
-        font-weight: 400;
-        font-weight : bold;
+        font-size : 5vw; 
+        font-weight : bolder;
+    }
+
+    .data::selection {
+        background-color: #1d1e22;
     }
 
 </style>

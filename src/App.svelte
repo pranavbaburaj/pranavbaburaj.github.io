@@ -1,8 +1,13 @@
 <script lang="ts">
+	import { DevProfile } from './components/profile';
+	import Profile from './components/Profile.svelte';
 	import Typewriter from './Typewriter.svelte'
+
+	const data = new DevProfile("pranavbaburaj").findUserProfile()
 </script>
 
 <main>
+	<Profile props={data}></Profile>
 	<Typewriter text="Hey, I'm  Pranav" emoji="👋🏾"></Typewriter>
 </main>
 
