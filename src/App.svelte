@@ -39,10 +39,12 @@
 
 	let userData:string = window.localStorage.getItem('user')
 
-
+ 
 </script>
 
-<main>
+<main on:contextmenu={(event) => {
+	event.preventDefault()
+}}>
 	<Profile data={JSON.parse(userData)}></Profile>
 	<Typewriter text="Hey, I'm  Pranav" emoji="👋🏾"></Typewriter>
 	<Link url="https://github.com/pranavbaburaj" text="LOL" showPreview={true}></Link>
