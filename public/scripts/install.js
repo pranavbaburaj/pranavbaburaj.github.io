@@ -55,3 +55,5 @@ function logAppInstalled(evt) {
   // Add code to log the event
   console.log('Svelte App was installed.', evt);
 }
+
+installPWA()
