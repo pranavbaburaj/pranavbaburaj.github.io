@@ -1,6 +1,7 @@
 <script lang="ts">
     export let text:string | number | undefined;
-    
+    export let emoji:string | undefined;
+
     let value:string = "";
     let counterIndex = 0;
 
@@ -25,6 +26,9 @@
             {#if text}
                 <p class="data">
                     {value}
+                    {#if emoji}
+                        {emoji}
+                    {/if}
                 </p>
             {/if}
         </div>
@@ -32,5 +36,19 @@
 </main>
 
 <style>
+    .text {
+        display : grid;
+        align-items: center;
+        text-align: center;
+        margin-top : 10%;
+    }
+    .data {
+        color : #ebe7e7;
+        font-family: "Josefin Sans", arial, helvetica;
+        display : inline-block;
+        font-size : 10vw;
+        font-weight: 400;
+        font-weight : bold;
+    }
 
 </style>
