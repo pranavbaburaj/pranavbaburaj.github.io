@@ -1,24 +1,9 @@
 import * as axios from 'axios'
 
-export interface SocialLink {
-    url : string,
-    media : string,
-    show? : boolean
-}
 
-
-export interface DevUser {
-    type : string,
-    id : number,
-    username : string,
-    name : string,
-    bio : string;
-    links : Map<string, SocialLink>,
-    image : string
-}
 
 export class DevProfile {
-    private static api = (username:string):string => {
+    public static api = (username:string):string => {
         return `https://dev.to/api/users/by_username?url=${username}`
     }
     private username:string;

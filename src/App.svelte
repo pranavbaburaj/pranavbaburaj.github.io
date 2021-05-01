@@ -1,13 +1,50 @@
 <script lang="ts">
+	import type { AxiosResponse } from 'axios';
+
 	import { DevProfile } from './components/profile';
 	import Profile from './components/Profile.svelte';
 	import Typewriter from './Typewriter.svelte'
 
-	const data = new DevProfile("pranavbaburaj").findUserProfile()
+	interface SocialLink {
+		url : string,
+		media : string,
+		show? : boolean
+	}
+
+	
+	interface DevUser {
+		type : string,
+		id : number,
+		username : string,
+		name : string,
+		bio : string;
+		links : Map<string, SocialLink>,
+		image : string
+	}
+
+	async function fetchData(username:string):Promise<any> {
+		const data = await fetch(DevProfile.api(username), {
+			method : "GET"
+		})
+
+		return await data.json()
+	}
+
+	let userData:string = window.localStorage.getItem('user')
+	if(!userData){
+		fetchData("pranavbaburaj").then((value:any) => {
+			window.localStorage.setItem('user', JSON.stringify(value))
+		}).catch((exception) => {
+			window.location.href = "/"
+		})
+
+		userData = window.localStorage.getItem('users')
+	} 
+
 </script>
 
 <main>
-	<Profile props={data}></Profile>
+	<Profile></Profile>
 	<Typewriter text="Hey, I'm  Pranav" emoji="👋🏾"></Typewriter>
 </main>
 
