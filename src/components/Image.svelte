@@ -89,8 +89,9 @@
   .modal-content {
     margin: auto;
     display: block;
-    width: 80%;
+    width: 50vw;
     max-width: 700px;
+    height : 80vh;
   }
 
   /* Caption of Modal Image (Image Text) - Same Width as the Image */

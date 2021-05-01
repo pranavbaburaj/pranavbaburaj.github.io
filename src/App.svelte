@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { AxiosResponse } from 'axios';
+	import Link from './components/Link.svelte';
 
 	import { DevProfile } from './components/profile';
 	import Profile from './components/Profile.svelte';
@@ -44,6 +45,7 @@
 <main>
 	<Profile data={JSON.parse(userData)}></Profile>
 	<Typewriter text="Hey, I'm  Pranav" emoji="👋🏾"></Typewriter>
+	<Link url="https://github.com/pranavbaburaj" text="LOL" showPreview={true}></Link>
 </main>
 
 <style>
