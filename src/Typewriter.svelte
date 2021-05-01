@@ -11,7 +11,6 @@
             value += String(text).charAt(counterIndex)
             counterIndex += 1
             setTimeout(() => {
-                console.log(value)
                 createTypewriterEffect()
             }, 100)
         }
