@@ -4,6 +4,7 @@
 
 	import { DevProfile } from './components/profile';
 	import Profile from './components/Profile.svelte';
+import SocialLinks from './components/SocialLinks.svelte';
 	import Typewriter from './Typewriter.svelte'
 
 	interface SocialLink {
@@ -47,7 +48,7 @@
 }}>
 	<Profile data={JSON.parse(userData)}></Profile>
 	<Typewriter text="Hey, I'm  Pranav" emoji="👋🏾"></Typewriter>
-	<Link url="https://github.com/pranavbaburaj" text="LOL" showPreview={true}></Link>
+	<SocialLinks></SocialLinks>
 </main>
 
 <style>

@@ -2,6 +2,7 @@
     export let url:any;
     export let showPreview:boolean;
     export let text:string;
+    export let image:string | undefined;
 
     let displayValue = `${text}`
     let emoji = ""
@@ -15,7 +16,12 @@
 
 </script>
 
+<svelte:head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</svelte:head>
+
 <main>
+
    <div class="container">
     <p class="link" 
     on:click={(event) => createLinkOpen(event)}
@@ -38,7 +44,12 @@
     }
     .link {
         color : white;
-        opacity : 0.5;
+        opacity : 0.7;
         transition: 1s;
+        font-family : JetBrains Mono;
+    }
+
+    .link:hover {
+        opacity : 0.4;
     }
 </style>

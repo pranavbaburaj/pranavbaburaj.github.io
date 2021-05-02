@@ -8,7 +8,7 @@ export class GithubRepos {
 
     public fetchRepoData = ():void => {
         fetch("https://pranavababuraj-top-github-proj.herokuapp.com/", {
-            method : "GET"
+            method : "GET",
         }).then((response:Response) => {
             return response.json()
         }).then((data:any) => {

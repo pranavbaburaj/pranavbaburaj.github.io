@@ -2,7 +2,8 @@ import dotenv
 import os
 import requests
 
-from flask import Flask, views, jsonify, request, abort
+from flask import (Flask, views, jsonify, request, abort)
+from flask_cors import CORS as cors
 """
 Load all the environment variabled
 from the .env file. The env file
@@ -14,7 +15,7 @@ TOKEN = os.getenv("TOKEN")
 USERNAME = "pranavbaburaj"
 
 app = Flask(__name__)
-
+cors(app)
 
 class ArrangeProjects(object):
     limit = 3
