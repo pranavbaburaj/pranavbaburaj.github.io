@@ -7,10 +7,10 @@ headers = {
 }
 data = json.dumps({"api_key" : "LOL"})
 response = requests.request(
-  'POST',
+  'GET',
   'http://localhost:5000/',
   data=data,
   headers=headers,
 )
 
-print(response.content)
+print(json.loads(response.content))
