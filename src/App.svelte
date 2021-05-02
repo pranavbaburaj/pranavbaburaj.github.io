@@ -4,16 +4,11 @@
 
 	import { DevProfile } from './components/profile';
 	import Profile from './components/Profile.svelte';
-import SocialLinks from './components/SocialLinks.svelte';
 	import Typewriter from './Typewriter.svelte'
+	import type { SocialLink } from './components/link'
+	import SocialLinks from './components/SocialLinks.svelte'
+import GithubCards from './components/github/GithubCards.svelte';
 
-	interface SocialLink {
-		url : string,
-		media : string,
-		show? : boolean
-	}
-
-	
 	interface DevUser {
 		type : string,
 		id : number,
@@ -39,6 +34,33 @@ import SocialLinks from './components/SocialLinks.svelte';
 	})
 
 	let userData:string = window.localStorage.getItem('user')
+	const socialLinkList:Map<string, SocialLink> = new Map<string, SocialLink>([
+		["github", {
+			siteName : "github",
+			redirectUrl : "https://github.com/pranavbaburaj",
+			show : true
+		}],
+		["twitter", {
+			siteName : "twitter",
+			redirectUrl : "https://twitter.com/_pranavbaburaj",
+			show : true
+		}],
+		["instagram" , {
+			siteName : "instagram",
+			redirectUrl : "https://instagram.com/pranavbaburaj",
+			show : true
+		}],
+		["reddit", {
+			siteName : "reddit",
+			redirectUrl : "https://www.reddit.com/user/pranavbaburaj",
+			show : true
+		}],
+		["discord", {
+			siteName : "discord",
+			redirectUrl : "https://discord.com/users/763820556491161650",
+			show : false
+		}]
+	])
 
  
 </script>
@@ -48,7 +70,8 @@ import SocialLinks from './components/SocialLinks.svelte';
 }}>
 	<Profile data={JSON.parse(userData)}></Profile>
 	<Typewriter text="Hey, I'm  Pranav" emoji="👋🏾"></Typewriter>
-	<SocialLinks></SocialLinks>
+	<SocialLinks links={socialLinkList}></SocialLinks>
+	<GithubCards></GithubCards>
 </main>
 
 <style>
