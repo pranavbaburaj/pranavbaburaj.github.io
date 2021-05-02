@@ -1,83 +1,101 @@
 <script lang="ts">
-	import type { AxiosResponse } from 'axios';
-	import Link from './components/Link.svelte';
+  import type {AxiosResponse} from 'axios';
+  import Link from './components/Link.svelte';
 
-	import { DevProfile } from './components/profile';
-	import Profile from './components/Profile.svelte';
-	import Typewriter from './Typewriter.svelte'
-	import type { SocialLink } from './components/link'
-	import SocialLinks from './components/SocialLinks.svelte'
-import GithubCards from './components/github/GithubCards.svelte';
+  import {DevProfile} from './components/profile';
+  import Profile from './components/Profile.svelte';
+  import Typewriter from './Typewriter.svelte';
+  import type {SocialLink} from './components/link';
+  import SocialLinks from './components/SocialLinks.svelte';
+  import GithubCards from './components/github/GithubCards.svelte';
 
-	interface DevUser {
-		type : string,
-		id : number,
-		username : string,
-		name : string,
-		bio : string;
-		links : Map<string, SocialLink>,
-		image : string
-	}
+  interface DevUser {
+    type: string;
+    id: number;
+    username: string;
+    name: string;
+    bio: string;
+    links: Map<string, SocialLink>;
+    image: string;
+  }
 
-	export async function fetchData(username:string):Promise<any> {
-		const data = await fetch(DevProfile.api(username), {
-			method : "GET"
-		})
+  export async function fetchData(username: string): Promise<any> {
+    const data = await fetch(DevProfile.api(username), {
+      method: 'GET',
+    });
 
-		return await data.json()
-	}
+    return await data.json();
+  }
 
-	fetchData("pranavbaburaj").then((value:any) => {
-		window.localStorage.setItem('user', JSON.stringify(value))
-	}).catch((exception) => {
-		window.location.href = "/"
-	})
+  fetchData('pranavbaburaj')
+    .then((value: any) => {
+      window.localStorage.setItem('user', JSON.stringify(value));
+    })
+    .catch((exception) => {
+      window.location.href = '/';
+    });
 
-	let userData:string = window.localStorage.getItem('user')
-	const socialLinkList:Map<string, SocialLink> = new Map<string, SocialLink>([
-		["github", {
-			siteName : "github",
-			redirectUrl : "https://github.com/pranavbaburaj",
-			show : true
-		}],
-		["twitter", {
-			siteName : "twitter",
-			redirectUrl : "https://twitter.com/_pranavbaburaj",
-			show : true
-		}],
-		["instagram" , {
-			siteName : "instagram",
-			redirectUrl : "https://instagram.com/pranavbaburaj",
-			show : true
-		}],
-		["reddit", {
-			siteName : "reddit",
-			redirectUrl : "https://www.reddit.com/user/pranavbaburaj",
-			show : true
-		}],
-		["discord", {
-			siteName : "discord",
-			redirectUrl : "https://discord.com/users/763820556491161650",
-			show : false
-		}]
-	])
-
- 
+  let userData: string = window.localStorage.getItem('user');
+  const socialLinkList: Map<string, SocialLink> = new Map<string, SocialLink>([
+    [
+      'github',
+      {
+        siteName: 'github',
+        redirectUrl: 'https://github.com/pranavbaburaj',
+        show: true,
+      },
+    ],
+    [
+      'twitter',
+      {
+        siteName: 'twitter',
+        redirectUrl: 'https://twitter.com/_pranavbaburaj',
+        show: true,
+      },
+    ],
+    [
+      'instagram',
+      {
+        siteName: 'instagram',
+        redirectUrl: 'https://instagram.com/pranavbaburaj',
+        show: true,
+      },
+    ],
+    [
+      'reddit',
+      {
+        siteName: 'reddit',
+        redirectUrl: 'https://www.reddit.com/user/pranavbaburaj',
+        show: true,
+      },
+    ],
+    [
+      'discord',
+      {
+        siteName: 'discord',
+        redirectUrl: 'https://discord.com/users/763820556491161650',
+        show: false,
+      },
+    ],
+  ]);
 </script>
 
-<main on:contextmenu={(event) => {
-	event.preventDefault()
-}}>
-	<Profile data={JSON.parse(userData)}></Profile>
-	<Typewriter text="Hey, I'm  Pranav" emoji="👋🏾"></Typewriter>
-	<SocialLinks links={socialLinkList}></SocialLinks>
-	<GithubCards></GithubCards>
+<main
+  on:contextmenu={(event) => {
+    event.preventDefault();
+  }}
+>
+  <Profile data={JSON.parse(userData)} />
+  <Typewriter text="Hey, I'm  Pranav" emoji="👋🏾" />
+  <SocialLinks links={socialLinkList} />
+  <GithubCards />
 </main>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@1,600&display=swap');@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@1,600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@1,600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@1,600&display=swap');
 
-	:root {
-		background-color: #24252A;
-	}
+  :root {
+    background-color: #24252a;
+  }
 </style>

@@ -35,10 +35,10 @@
     return marginString;
   }
 
-  let modalDisplay:string = "display:none;"
+  let modalDisplay: string = 'display:none;';
 
   function showImageModal() {
-      modalDisplay = "display:block;"
+    modalDisplay = 'display:block;';
   }
 
   let borderRadius: string = isProfile ? 'border-radius:50%;' : '';
@@ -49,13 +49,20 @@
 </script>
 
 <main>
-  <img src={source} alt={text} title={text} style={css} on:click={showImageModal} />
+  <img
+    src={source}
+    alt={text}
+    title={text}
+    style={css}
+    on:click={showImageModal}
+  />
   <div id="imageModal" class="modal" style={modalDisplay}>
-    <span class="close" on:click={
-        (event) => {
-            modalDisplay = "display:none;";
-        }
-    }>&times;</span>
+    <span
+      class="close"
+      on:click={(event) => {
+        modalDisplay = 'display:none;';
+      }}>&times;</span
+    >
     <img class="modal-content" id="img" src={source} alt={text} />
   </div>
 </main>
@@ -80,7 +87,7 @@
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: #36393F; /* Fallback color */
+    background-color: #36393f; /* Fallback color */
     background-color: #202225; /* Black w/ opacity */
     backdrop-filter: blur(5px);
   }
@@ -91,7 +98,7 @@
     display: block;
     width: 50vw;
     max-width: 700px;
-    height : 80vh;
+    height: 80vh;
   }
 
   /* Caption of Modal Image (Image Text) - Same Width as the Image */
@@ -148,21 +155,22 @@
   }
 
   .hideModal {
-      z-index : -1;
-      opacity : 0;
-      animation : hide .25s;
-      transform :scale(0);
+    z-index: -1;
+    opacity: 0;
+    animation: hide 0.25s;
+    transform: scale(0);
   }
 
   @keyframes hide {
-      from{
-          z-index : 2;
-          transform : scale(1);
-          opacity : 1;
-      } to {
-          z-index : -1;
-          transform : scale(1);
-          opacity : 0;
-      }
+    from {
+      z-index: 2;
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      z-index: -1;
+      transform: scale(1);
+      opacity: 0;
+    }
   }
 </style>
