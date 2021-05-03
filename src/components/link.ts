@@ -4,3 +4,9 @@ export interface SocialLink {
   currentTab?: boolean;
   show: boolean;
 }
+
+export interface DiscordInvite {
+  username : string;
+  discriminator : number;
+  userId : number
+}
