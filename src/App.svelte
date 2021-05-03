@@ -10,11 +10,11 @@
   import GithubCards from './components/github/GithubCards.svelte';
   import Callout from './components/Callout.svelte';
 
-  const discord:DiscordInvite = {
-    username : "pranavbaburaj",
-    discriminator : 3361,
-    userId : 763820556491161650
-  }
+  const discord: DiscordInvite = {
+    username: 'pranavbaburaj',
+    discriminator: 3361,
+    userId: 763820556491161650,
+  };
 
   interface DevUser {
     type: string;
@@ -97,10 +97,10 @@
   <SocialLinks links={socialLinkList} />
   <GithubCards />
   <Callout
-  calloutHeader="Hi Everyone"
-  discordInvite={discord}
-  text="Ping me on discord"
-  ></Callout>
+    calloutHeader="Hi Everyone"
+    discordInvite={discord}
+    text="Ping me on discord"
+  />
 </main>
 
 <style>

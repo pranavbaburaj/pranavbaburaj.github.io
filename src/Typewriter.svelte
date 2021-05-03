@@ -5,6 +5,11 @@
   let value: string = '';
   let counterIndex = 0;
 
+  /**
+   * Create the typewriter effect with
+   * the text and the speed passed in as
+   * a props
+   */
   function createTypewriterEffect() {
     let speed = 50;
     if (counterIndex < String(text).length) {
