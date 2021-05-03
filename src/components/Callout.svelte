@@ -3,6 +3,18 @@
   export let calloutHeader:string;
   export let discordInvite:DiscordInvite
   export let text:string
+
+  function createDiscordLink(user:DiscordInvite):string {
+    return  "https://discord.com/users/763820556491161650"
+  }
+
+  function createCalloutTextTitle(user:DiscordInvite):string {
+    const discriminator = user.discriminator;
+    const username = user.username;
+
+    return `${username}#${discriminator}`
+  }
+
 </script>
 
 <main>
@@ -12,7 +24,16 @@
 
         <div class="dummy"></div>
         <div class="callout-container">
-          <button class="join-us-btn">Join me</button>
+          <button class="join-us-btn" 
+          title={createCalloutTextTitle(discordInvite)}
+          on:click={(event) => {
+            window.open(
+              createDiscordLink(discordInvite),
+            )
+          }}
+          >
+          Join me
+        </button>
         </div>
     </div>
 </main>
@@ -36,6 +57,10 @@
     border-radius: 5px;
     outline: none;
     margin : 20px ;
+}
+
+.join-us-btn:focus {
+  background-color: rgb(107, 136, 239);
 }
     .callout {
   position: fixed;
