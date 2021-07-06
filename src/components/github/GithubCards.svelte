@@ -5,6 +5,7 @@
   }
 
   data = JSON.parse(data).data;
+  const repos = Object.values(data)
   if (!Array.isArray(data)) {
     window.location.reload();
   }
@@ -15,11 +16,10 @@
 <main>
   <div class="github-cards">
     {#if show}
-      {#each data as repo}
+      {#each repos as repo}
         <a
           class="github-card"
           data-github="Nexmo/nexmo-ruby"
-          href=""
           on:click={(event) => {
             window.open(repo.html_url);
           }}

@@ -85,8 +85,28 @@
       },
     ],
   ]);
+
+
+  function listenKeyboardEvent(event) {
+    if(event.key == "F5"){
+      event.preventDefault()
+    }
+  }
+
+  import Meta from './Meta.svelte'
+
+    const metadata = {
+        title: 'Svelte is Awesome',
+        description: 'It really is!',
+        image: 'https://svelte.dev/images/twitter-card.png',
+        imageAlt: 'Svelte svelte.dev',
+        url:'svelte.dev'
+    }
 </script>
 
+<svelte:window on:keydown={(event)=>{listenKeyboardEvent(event)}} />
+
+<Meta {metadata}/>
 <main
   on:contextmenu={(event) => {
     event.preventDefault();

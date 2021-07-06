@@ -30,7 +30,7 @@
           window.open(createDiscordLink(discordInvite));
         }}
       >
-        Join me
+        Contact me
       </button>
     </div>
   </div>
