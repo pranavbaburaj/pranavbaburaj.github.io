@@ -15,8 +15,8 @@ export class GithubRepos {
    * it in the localStorage using the key
    */
   public fetchRepoData = (): void => {
-    fetch('https://pranavababuraj-top-github-proj.herokuapp.com/', {
-      method: 'GET',
+    fetch("https://pranavababuraj-top-github-proj.herokuapp.com/", {
+      method: "GET",
     })
       .then((response: Response) => {
         return response.json();
